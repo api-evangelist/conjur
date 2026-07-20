@@ -1,0 +1,34 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: |-
+    Basic authentication with Conjur username and password (users only)
+    or API key (hosts and users).
+  sources:
+  - openapi/openapi.yml
+- name: conjurAuth
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Conjur access token in `Token token=<base64_encoded_token>` format.
+  sources:
+  - openapi/openapi.yml
+- name: conjurKubernetesMutualTls
+  type: http
+  scheme: mutual
+  description: |-
+    Conjur Kubernetes authenticator mutual TLS authentication.
+    To authenticate using this method, you must provide a trusted client
+    certificate
+  sources:
+  - openapi/openapi.yml
