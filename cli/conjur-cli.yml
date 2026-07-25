@@ -1,0 +1,43 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/cyberark/conjur-cli-go
+name: conjur
+description: >-
+  Official CyberArk Conjur command-line interface (Go implementation). Wraps the
+  Conjur / Secrets Manager REST API for authentication, secret retrieval, policy
+  loading, and resource inspection. Supersedes the legacy Ruby CLI
+  (cyberark/conjur-cli).
+repos:
+  - https://github.com/cyberark/conjur-cli-go
+  - https://github.com/cyberark/conjur-cli
+install:
+  - method: github-release
+    detail: Download the conjur binary for your platform from the conjur-cli-go releases page.
+    url: https://github.com/cyberark/conjur-cli-go/releases
+  - method: docker
+    detail: docker pull cyberark/conjur-cli
+command_groups:
+  - group: init
+    summary: Configure the CLI with the Conjur appliance URL and account.
+    commands: [init]
+  - group: authn
+    summary: Log in and manage the authenticated identity and API key.
+    commands: [login, logout, authenticate, whoami]
+    maps_to_operations: [getAccessToken, whoAmI, rotateApiKey]
+  - group: variable
+    summary: Read and set secret values stored in Conjur variables.
+    commands: [get, set]
+    maps_to_operations: [getSecret, getSecrets, createSecret]
+  - group: policy
+    summary: Load, replace, and update Conjur policy (YAML) documents.
+    commands: [load, replace, update]
+    maps_to_operations: [loadPolicy, replacePolicy, updatePolicy]
+  - group: list
+    summary: List and show resources and roles visible to the identity.
+    commands: [list, resource, role]
+    maps_to_operations: [showResourcesForAccount, showResource, showRole]
+key_flows:
+  - name: Authenticate and fetch a secret
+    steps: [conjur init, conjur login, conjur variable get <id>]
+  - name: Load a policy
+    steps: [conjur policy load -b <branch> -f policy.yml]

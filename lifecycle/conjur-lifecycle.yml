@@ -1,0 +1,21 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/cyberark/conjur/releases
+versioning:
+  scheme: semver-suite
+  api_definition_version: 5.3.2
+  server_current: v1.27.0
+  detail: >-
+    Conjur OSS is released as a versioned server (semver, e.g. v1.27.0) and
+    distributed as part of the Conjur OSS Suite (e.g. v1.19.5+suite.1). The
+    OpenAPI definition carries its own info.version.
+release_notes:
+  github: https://github.com/cyberark/conjur/releases
+  docs: https://docs.cyberark.com/conjur-open-source/latest/en/content/releasenotes/
+deprecation:
+  policy_documented: false
+  detail: No formal Sunset/Deprecation (RFC 8594) header policy is published for the OSS API.
+status_page:
+  present: false
+  detail: No public status page for Conjur OSS (self-hosted); CyberArk SaaS status is tracked separately.
+deprecated_operations: []

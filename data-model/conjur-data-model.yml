@@ -1,0 +1,60 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/openapi.yml
+notes: >-
+  Entity-relationship graph derived from the Conjur OpenAPI schemas, tags, and
+  RBAC model. Conjur's data model is role-based access control (RBAC): roles hold
+  privileges on resources, and secrets are the values stored on variable
+  resources.
+entities:
+  - name: Account
+    description: Top-level Conjur organizational partition; every identifier is scoped to an account.
+  - name: Role
+    description: An actor in the RBAC model. Kinds - user, host, group, layer, policy.
+    kinds: [user, host, group, layer, policy]
+  - name: Resource
+    description: A protected object privileges are granted on. Kinds include variable, webservice, policy, host_factory.
+    kinds: [variable, webservice, policy, host_factory, group, layer]
+  - name: Secret
+    description: The value(s) stored on a variable resource. Conjur retains the last 20 versions.
+  - name: Policy
+    description: A declarative YAML document defining roles, resources, grants, and permissions; also a role that owns the objects it declares.
+  - name: HostFactory
+    description: A mechanism for bulk-creating host identities via short-lived tokens.
+  - name: Authenticator
+    description: A pluggable authentication service (authn, authn-iam, authn-azure, authn-gcp, authn-k8s, authn-jwt, authn-oidc, authn-ldap).
+  - name: PublicKey
+    description: SSH/public keys stored for a role.
+relationships:
+  - from: Resource
+    to: Account
+    type: belongs_to
+    via: account
+  - from: Role
+    to: Account
+    type: belongs_to
+    via: account
+  - from: Secret
+    to: Resource
+    type: belongs_to
+    via: variable (resource of kind variable)
+  - from: Role
+    to: Role
+    type: has_many
+    via: memberships (addMemberToRole / removeMemberFromRole)
+  - from: Policy
+    to: Resource
+    type: has_many
+    via: declares
+  - from: Policy
+    to: Role
+    type: has_many
+    via: declares
+  - from: HostFactory
+    to: Role
+    type: has_many
+    via: creates (kind host)
+  - from: PublicKey
+    to: Role
+    type: belongs_to
+    via: role

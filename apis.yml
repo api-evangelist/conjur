@@ -1,8 +1,29 @@
 aid: conjur
 name: Conjur
-description: 'Conjur is a company surfaced as a portfolio company of amplify-partners and added to the
-  API Evangelist network as a stub for enrichment. Sector: cybersecurity. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Conjur is CyberArk's open-source secrets management platform. It automatically
+  secures secrets used by privileged users and machine identities across CI/CD,
+  cloud, and Kubernetes environments. Conjur uses a role-based access control
+  (RBAC) model, policy-as-code, and pluggable cloud-native authenticators (AWS
+  IAM, Azure, GCP, Kubernetes, JWT, OIDC, LDAP) to issue short-lived access
+  tokens and broker secret retrieval, rotation, and auditing. Originally Conjur
+  Inc. (backed by Amplify Partners), it was acquired by CyberArk and is now part
+  of Palo Alto Networks. The Conjur / CyberArk Secrets Manager REST API is
+  published as an OpenAPI 3.1 definition with official Ruby, Python, Go, Java,
+  and .NET client libraries, a CLI, and an official MCP server.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://avatars.githubusercontent.com/u/30869256?v=4
 url: https://raw.githubusercontent.com/api-evangelist/conjur/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,11 +33,38 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
 - Cybersecurity
-apis: []
+- Secrets Management
+- Identity and Access Management
+- DevSecOps
+- Kubernetes
+- Machine Identity
+- Open Source
+apis:
+- name: Conjur / CyberArk Secrets Manager API
+  description: >-
+    REST API for authenticating machine and human identities, retrieving and
+    rotating secrets, loading policy-as-code, and inspecting RBAC roles and
+    resources. Compatible with Conjur OSS and CyberArk Secrets Manager
+    (Self-Hosted and SaaS).
+  humanURL: https://github.com/cyberark/conjur-openapi-spec
+  baseURL: https://cyberark.github.io/conjur
+  tags:
+  - Secrets Management
+  - Authentication
+  - RBAC
+  properties:
+  - type: OpenAPI
+    url: openapi/openapi.yml
+  - type: Overlay
+    url: overlays/conjur-openapi-overlay.yaml
+  - type: Documentation
+    url: https://cyberark.github.io/conjur/
+  - type: APIReference
+    url: https://github.com/cyberark/conjur-openapi-spec
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +73,46 @@ maintainers:
 common:
 - type: Website
   url: https://conjur.org
+- type: DeveloperPortal
+  url: https://cyberark.github.io/conjur/
+- type: Documentation
+  url: https://cyberark.github.io/conjur/
+- type: APIReference
+  url: https://github.com/cyberark/conjur-openapi-spec
+- type: GitHubOrganization
+  url: https://github.com/cyberark
+- type: SourceCode
+  url: https://github.com/cyberark/conjur
+- type: Authentication
+  url: authentication/conjur-authentication.yml
+- type: Packages
+  url: packages/conjur-packages.yml
+- type: SDKs
+  url: packages/conjur-packages.yml
+- type: CLI
+  url: cli/conjur-cli.yml
+- type: MCPServer
+  url: mcp/conjur-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: ErrorCatalog
+  url: errors/conjur-problem-types.yml
+- type: Conventions
+  url: conventions/conjur-conventions.yml
+- type: Conformance
+  url: conformance/conjur-conformance.yml
+- type: DataModel
+  url: data-model/conjur-data-model.yml
+- type: Lifecycle
+  url: lifecycle/conjur-lifecycle.yml
+- type: ChangeLog
+  url: changelog/conjur-changelog.yml
+- type: LLMsTxt
+  url: llms/conjur-llms.txt
+- type: DomainSecurity
+  url: security/conjur-domain-security.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

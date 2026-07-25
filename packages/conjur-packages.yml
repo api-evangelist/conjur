@@ -1,0 +1,45 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/cyberark
+notes: >-
+  First-party CyberArk client libraries for the Conjur / CyberArk Secrets Manager
+  API. Each maps to an official cyberark/* GitHub repository and a published
+  package on the language's public registry.
+packages:
+  - language: ruby
+    registry: rubygems
+    name: conjur-api
+    version: 6.3.1
+    url: https://rubygems.org/gems/conjur-api
+    repo: https://github.com/cyberark/conjur-api-ruby
+    install: gem install conjur-api
+    official: true
+  - language: python
+    registry: pypi
+    name: conjur-api
+    version: 0.1.11
+    url: https://pypi.org/project/conjur-api/
+    repo: https://github.com/cyberark/conjur-api-python
+    install: pip install conjur-api
+    official: true
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/cyberark/conjur-api-go
+    url: https://pkg.go.dev/github.com/cyberark/conjur-api-go/conjurapi
+    repo: https://github.com/cyberark/conjur-api-go
+    install: go get github.com/cyberark/conjur-api-go/conjurapi
+    official: true
+  - language: java
+    registry: maven-central
+    name: net.conjur.api:conjur-api
+    url: https://central.sonatype.com/artifact/net.conjur.api/conjur-api
+    repo: https://github.com/cyberark/conjur-api-java
+    install: "<dependency><groupId>net.conjur.api</groupId><artifactId>conjur-api</artifactId></dependency>"
+    official: true
+  - language: dotnet
+    registry: nuget
+    name: conjur-api
+    url: https://www.nuget.org/packages/conjur-api/
+    repo: https://github.com/cyberark/conjur-api-dotnet
+    install: dotnet add package conjur-api
+    official: true

@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/openapi.yml
+standards:
+  - id: oauth2
+    conforms: false
+    evidence: No oauth2 securityScheme in the spec; token issuance is Conjur-specific (Token token=...).
+  - id: oidc
+    conforms: true
+    evidence: authn-oidc authenticator (getAccessTokenViaOIDC) supports OpenID Connect identity providers.
+  - id: jwt
+    conforms: true
+    evidence: authn-jwt authenticator (getAccessTokenViaJWT / getAccessTokenViaJWTWithId) validates JWTs from trusted issuers.
+  - id: mutual-tls
+    conforms: true
+    evidence: conjurKubernetesMutualTls securityScheme (http scheme mutual) for the Kubernetes authenticator.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Error responses use application/json, not application/problem+json.
+  - id: pagination-offset-limit
+    conforms: true
+    evidence: Resource listing operations accept limit/offset/count parameters.
+  - id: idempotency
+    conforms: false
+    evidence: No Idempotency-Key header; idempotency handled via HTTP method semantics (PUT vs POST for policy).

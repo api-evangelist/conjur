@@ -1,0 +1,14 @@
+{
+  "provider": "conjur",
+  "sources": [
+    "openapi.yml"
+  ],
+  "outputs": [],
+  "archived": [
+    "archived openapi.yml"
+  ],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

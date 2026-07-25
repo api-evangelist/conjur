@@ -1,0 +1,16 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/openapi.yml
+skills:
+  - file: conjur-authenticate-and-fetch-secret.md
+    name: Authenticate to Conjur and fetch a secret
+    api: openapi/openapi.yml
+    operations: [getAPIKey, getAccessToken, getSecret]
+  - file: conjur-manage-secrets.md
+    name: Store, read, and version secrets
+    api: openapi/openapi.yml
+    operations: [createSecret, getSecret, getSecrets]
+  - file: conjur-load-policy.md
+    name: Load and update Conjur policy
+    api: openapi/openapi.yml
+    operations: [whoAmI, loadPolicy, replacePolicy, updatePolicy]

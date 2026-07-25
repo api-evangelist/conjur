@@ -1,0 +1,40 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/openapi.yml
+notes: >-
+  Cross-cutting request/response semantics for the Conjur / CyberArk Secrets
+  Manager API, derived from the OpenAPI and the CyberArk documentation.
+authentication:
+  style: two-step-token
+  detail: >-
+    Authenticate with basic auth (username + API key) or a cloud-native
+    authenticator (authn-iam / authn-azure / authn-gcp / authn-k8s / authn-jwt /
+    authn-oidc / authn-ldap) to obtain a short-lived base64 access token, then
+    send it on subsequent calls as `Authorization: Token token="<base64>"`.
+  schemes: [basicAuth, conjurAuth, conjurKubernetesMutualTls]
+  ref: authentication/conjur-authentication.yml
+idempotency:
+  supported: false
+  detail: >-
+    Conjur exposes no Idempotency-Key header. Idempotency is achieved
+    structurally instead: policy loads use PUT (replace, fully idempotent) vs
+    POST (append) vs PATCH (update); secret writes (createSecret) create a new
+    version each call (Conjur retains the last 20 versions).
+pagination:
+  style: offset-limit
+  params:
+    limit: Return no more than this number of results (default 10 when offset is set).
+    offset: Skip this many results before returning the rest.
+    count: Return only the count of matching results (boolean).
+  applies_to: [showResourcesForAccount, showResourcesForKind, showResourcesForAllAccounts]
+versioning:
+  scheme: server-version
+  detail: The API definition carries an info.version (currently 5.3.2); the server product is versioned via the Conjur OSS suite (see lifecycle/changelog).
+error_envelope:
+  content_type: application/json
+  ref: errors/conjur-problem-types.yml
+  rfc9457: false
+rate_limiting:
+  documented: false
+url_encoding:
+  detail: Resource identifiers embedded in the path MUST be URL-encoded (e.g. `prod/aws/db-password` -> `prod%2Faws%2Fdb-password`).

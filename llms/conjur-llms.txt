@@ -1,0 +1,28 @@
+# Conjur (CyberArk Secrets Manager)
+
+> Conjur is CyberArk's open-source secrets management platform. It secures secrets used by privileged users and machine identities across CI/CD, cloud, and Kubernetes, using a role-based access control (RBAC) model, policy-as-code, and pluggable cloud-native authenticators (IAM, Azure, GCP, Kubernetes, JWT, OIDC, LDAP). Originally Conjur Inc., acquired by CyberArk, now part of Palo Alto Networks.
+
+## APIs
+- [Conjur / Secrets Manager OpenAPI](https://github.com/cyberark/conjur-openapi-spec): OpenAPI 3.1 definition covering authentication, secrets, policies, roles, resources, host factories, public keys, and server status.
+
+## Specs
+- [OpenAPI (root)](https://raw.githubusercontent.com/api-evangelist/conjur/refs/heads/main/openapi/openapi.yml)
+- [Authentication paths](https://raw.githubusercontent.com/api-evangelist/conjur/refs/heads/main/openapi/authentication.yml)
+- [Secrets paths](https://raw.githubusercontent.com/api-evangelist/conjur/refs/heads/main/openapi/secrets.yml)
+- [Policies paths](https://raw.githubusercontent.com/api-evangelist/conjur/refs/heads/main/openapi/policies.yml)
+
+## Docs
+- [Conjur OSS project](https://cyberark.github.io/conjur/)
+- [Source (GitHub org)](https://github.com/cyberark)
+- [Conjur server](https://github.com/cyberark/conjur)
+- [CLI (conjur-cli-go)](https://github.com/cyberark/conjur-cli-go)
+
+## SDKs
+- [Ruby](https://rubygems.org/gems/conjur-api)
+- [Python](https://pypi.org/project/conjur-api/)
+- [Go](https://pkg.go.dev/github.com/cyberark/conjur-api-go/conjurapi)
+- [Java](https://central.sonatype.com/artifact/net.conjur.api/conjur-api)
+- [.NET](https://www.nuget.org/packages/conjur-api/)
+
+## Agent
+- [Secrets Manager MCP server](https://docs.cyberark.com/secrets-manager-saas/latest/en/content/conjurcloud/cc-mcp-server.htm)

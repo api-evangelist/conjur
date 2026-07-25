@@ -1,0 +1,26 @@
+generated: '2026-07-18'
+method: searched
+status: published
+source: https://docs.cyberark.com/secrets-manager-saas/latest/en/content/conjurcloud/cc-mcp-server.htm
+server:
+  name: CyberArk Secrets Manager MCP server
+  vendor: CyberArk (Palo Alto Networks)
+  transport: stdio
+  runtime: docker
+  distribution: CyberArk Marketplace
+  hosted_url: null
+  notes: >-
+    Official CyberArk Model Context Protocol server for Secrets Manager /
+    Conjur Cloud. Runs in a Docker container and authenticates using a
+    dedicated Identity OAuth2 client and service account. CyberArk recommends
+    a least-privileged account; the MCP server does not enforce permission
+    boundaries between the AI agent and the authenticated user.
+authentication:
+  scheme: oauth2
+  detail: Identity OAuth2 client + service account (least-privileged recommended).
+capabilities:
+  - Scan source code for hard-coded secrets.
+  - Create Secrets Manager secrets for discovered hard-coded secrets.
+  - Update source code to retrieve secret values from Secrets Manager at runtime.
+docs:
+  - https://docs.cyberark.com/secrets-manager-saas/latest/en/content/conjurcloud/cc-mcp-server.htm

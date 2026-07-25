@@ -1,0 +1,25 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/cyberark/conjur/releases
+scheme: semver
+current_version: v1.27.0
+notes: >-
+  Recent tagged releases of the Conjur OSS server (cyberark/conjur). The GitHub
+  releases page is the source of truth; only the recent window is captured here.
+entries:
+  - version: v1.27.0
+    date: '2026-06-16'
+  - version: v1.24.0
+    date: '2025-11-20'
+  - version: v1.22.3
+    date: '2025-09-24'
+  - version: v1.21.6
+    date: '2025-09-24'
+  - version: v1.22.2
+    date: '2025-07-23'
+  - version: v1.22.1
+    date: '2025-07-15'
+  - version: v1.22.0
+    date: '2025-04-30'
+  - version: v1.21.3
+    date: '2025-02-19'

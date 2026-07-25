@@ -1,0 +1,54 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/openapi.yml
+format: custom-json
+notes: >-
+  Derived from the shared components.responses in the Conjur OpenAPI (root
+  openapi.yml). Conjur does NOT use RFC 9457 application/problem+json; error
+  bodies are application/json with a plain message/error object. Titles and
+  descriptions are taken verbatim from the spec's response descriptions.
+envelope:
+  content_type: application/json
+  shape: "{ \"error\": { \"code\": <string>, \"message\": <string> } }"
+problems:
+  - status: 400
+    key: BadRequest
+    title: Bad request
+    detail: The server cannot process the request due to malformed request syntax.
+  - status: 401
+    key: UnauthorizedError
+    title: Unauthorized
+    detail: Authentication information is missing or invalid.
+    remediation: Obtain a fresh access token via an authn endpoint (e.g. getAccessToken) and resend in the Authorization header.
+  - status: 403
+    key: InadequatePrivileges
+    title: Forbidden
+    detail: The authenticated user lacks the necessary privileges.
+  - status: 404
+    key: ResourceNotFound
+    title: Resource not found
+    detail: The requested resource does not exist, the authenticated user lacks the required privileges to enumerate this resource, or its value has not been set.
+  - status: 404
+    key: ResourcesNotFound
+    title: Resources not found
+    detail: At least one resource was unable to be found (batch operations).
+  - status: 406
+    key: NotAcceptable
+    title: Not acceptable
+    detail: The server could not produce a response matching the acceptable values in the request's content-negotiation headers.
+  - status: 409
+    key: Busy
+    title: Conflict / busy
+    detail: A similar operation is already in progress; retry after a delay.
+  - status: 422
+    key: UnprocessableEntity
+    title: Unprocessable entity
+    detail: A request parameter was either missing or invalid.
+  - status: 500
+    key: InternalServerError
+    title: Internal server error
+    detail: The request was malformed and rejected by the server, or an unexpected server error occurred.
+  - status: 502
+    key: BadGateway
+    title: Bad gateway
+    detail: An upstream/remote health check failed (remoteHealth).

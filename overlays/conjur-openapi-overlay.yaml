@@ -1,0 +1,23 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Conjur
+  version: 1.0.0
+extends: openapi/openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-18'
+      x-apievangelist-provider: conjur
+      x-apievangelist-category: secrets-management
+      x-agentic-access-note: >-
+        Write operations (createSecret, loadPolicy, replacePolicy, rotateApiKey,
+        addMemberToRole, removeMemberFromRole) are consequential and should run
+        under short-lived, audited, least-privileged tokens.
+  - target: $.info
+    update:
+      x-apievangelist-artifacts:
+        authentication: authentication/conjur-authentication.yml
+        conventions: conventions/conjur-conventions.yml
+        errors: errors/conjur-problem-types.yml
+        data_model: data-model/conjur-data-model.yml
+        packages: packages/conjur-packages.yml
