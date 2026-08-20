@@ -42,6 +42,15 @@ tags:
 - DevSecOps
 - Kubernetes
 - Machine Identity
+- Open-Source
+tags_raw:
+- Company
+- Cybersecurity
+- Secrets Management
+- Identity and Access Management
+- DevSecOps
+- Kubernetes
+- Machine Identity
 - Open Source
 apis:
 - name: Conjur / CyberArk Secrets Manager API
