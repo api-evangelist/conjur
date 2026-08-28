@@ -11,6 +11,17 @@ description: >-
   of Palo Alto Networks. The Conjur / CyberArk Secrets Manager REST API is
   published as an OpenAPI 3.1 definition with official Ruby, Python, Go, Java,
   and .NET client libraries, a CLI, and an official MCP server.
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: false
+  callable_host: false
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
