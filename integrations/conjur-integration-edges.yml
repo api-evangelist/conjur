@@ -32,6 +32,24 @@ edges:
     detected: '2026-10-19'
   detected_by: sweep-cloud-native.py
   first_seen: '2026-10-15'
+- partner_name: Jenkins (own)
+  partner: jenkins
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://plugins.jenkins.io/conjur-credentials/
+  mirror_of: jenkins/integrations/jenkins-integration-edges.yml
+  apps:
+  - Conjur Secrets
+  - Conjur Secrets (conjur-credentials)
+  listing_count: 1
+  detected: '2026-10-22'
+  detected_by: mirror-platform-listings.py
+  category: Jenkins plugin
 generated: '2026-10-15'
 method: searched
 source:
@@ -41,3 +59,4 @@ checked:
 - https://focus.finops.org/data-generators/
 - https://github.com/cncf/k8s-conformance
 - https://github.com/cncf/landscape
+- jenkins/integrations/jenkins-integration-edges.yml
